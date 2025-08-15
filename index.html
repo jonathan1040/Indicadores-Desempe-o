@@ -195,6 +195,52 @@ table td:last-child {
     /* Badges del header en columna para que no se salgan */
     header{flex-direction:column;align-items:flex-start}
   }
+
+  /* =======================
+     NUEVO: estilos sección Requerimientos
+     ======================= */
+  /* contenedor con clases auxiliares para diferenciar estilos sin afectar otras secciones */
+  #reqs.reqs .grid.reqs-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+  @media (max-width:980px){
+    #reqs.reqs .grid.reqs-grid{ grid-template-columns:1fr; }
+  }
+
+  .req-card{ position:relative; }
+  .req-card-head{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom:12px;
+  }
+  .req-card-head h3{ margin:0; font-size:1rem; color:var(--ink2) }
+
+  .chip{
+    display:inline-flex; align-items:center; gap:.4rem;
+    padding:.25rem .6rem; font-size:.75rem; border-radius:999px;
+    border:1px solid var(--muted); background:#fff; color:var(--ink2);
+  }
+  .chip-soft{ border-color:rgba(58,132,247,.35) }     /* azulito sutil */
+  .chip-design{ border-color:rgba(168,85,247,.35) }   /* violeta sutil */
+  .chip-admin{ border-color:rgba(245,158,11,.45) }    /* ámbar sutil */
+
+  /* tabla “estrechita” visualmente */
+  .table-metrics thead th{ font-size:.82rem; }
+  .table-metrics tbody td{ font-size:.92rem; }
+
+  /* bloque de estado: tags + barra de progreso */
+  .estado-cell .estado-tags{
+    display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:8px;
+  }
+
+  /* Barra de progreso por porcentaje (usa --value en línea) */
+  .progress{
+    --height: 8px;
+    position:relative; width:100%; height:var(--height);
+    background:#eee; border-radius:999px; overflow:hidden;
+  }
+  .progress::before{
+    content:""; position:absolute; inset:0;
+    width: calc(var(--value,0) * 1%);
+    background: linear-gradient(90deg, var(--ok), #0f8f64);
+  }
 </style>
 </head>
 <body>
@@ -273,7 +319,13 @@ table td:last-child {
               <tr><td>Mayo</td><td>7.779</td><td>640</td><td>8.2%</td><td>Falta anexo</td></tr>
               <tr><td>Junio</td><td>6.437</td><td>471</td><td>7.3%</td><td>Este tipo de pago no lleva referencia</td></tr>
               <tr><td>Julio</td><td>8.729</td><td>622</td><td>6.4%</td><td>Pasar a caja bancolombia corriente y davivienda</td></tr>
-              <tr><td>Total</td><td>51.595</td><td>3900</td><td>7.5%</td><td>Fecha Registrada No coincide con la de el Comprobante</td></tr>
+              <tr>
+  <td><strong>Total</strong></td>
+  <td><strong>51.595</strong></td>
+  <td><strong>3900</strong></td>
+  <td><strong>7.5%</strong></td>
+  <td><strong>Fecha Registrada No coincide con la de el Comprobante</strong></td>
+</tr>
             </tbody>
           </table>
         </div>
@@ -292,58 +344,95 @@ table td:last-child {
       </div>
     </section>
 
-    <!-- REQUERIMIENTOS -->
-    <section id="reqs">
+    <!-- REQUERIMIENTOS (NUEVO HTML MEJORADO) -->
+    <section id="reqs" class="reqs">
       <div class="section-head">
         <h2>2) Requerimientos (Software, Diseño, Administrativos)</h2>
         <span class="pill">Volumen & SLA</span>
       </div>
-      <div class="grid three">
-        <div class="card">
-          <h3>Software</h3>
-          <table>
+
+      <div class="grid three reqs-grid">
+        <!-- Card: Software -->
+        <div class="card req-card">
+          <div class="req-card-head">
+            <h3>Software</h3>
+            <span class="chip chip-soft">Activo</span>
+          </div>
+
+          <table class="table-metrics">
             <thead><tr><th>Métrica</th><th>Valor</th></tr></thead>
             <tbody>
-              <tr><td>Total Solucionados</td><td>4.650</td></tr>
+              <tr><td>Total Solucionados</td><td><strong>4.650</strong></td></tr>
               <tr><td>Total Rechazado</td><td>1.081</td></tr>
               <tr><td>Tiempo de Solucion</td><td>31 minutos</td></tr>
-              <tr><td>Estado</td><td>
-                <span class="tag ok">Solucionados 81.15%</span>
-                <span class="tag err">Rechazados 18.85%</span>
-              </td></tr>
+              <tr>
+                <td>Estado</td>
+                <td class="estado-cell">
+                  <div class="estado-tags">
+                    <span class="tag ok">Solucionados 81.15%</span>
+                    <span class="tag err">Rechazados 18.85%</span>
+                  </div>
+                  <div class="progress" style="--value:81.15;"></div>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
-        <div class="card">
-          <h3>Diseño</h3>
-          <table>
+
+        <!-- Card: Diseño -->
+        <div class="card req-card">
+          <div class="req-card-head">
+            <h3>Diseño</h3>
+            <span class="chip chip-design">Estable</span>
+          </div>
+
+          <table class="table-metrics">
             <thead><tr><th>Métrica</th><th>Valor</th></tr></thead>
             <tbody>
-            <tr><td>Total Solucionados</td><td>1.189</td></tr>
+              <tr><td>Total Solucionados</td><td><strong>1.189</strong></td></tr>
               <tr><td>Total Rechazado</td><td>82</td></tr>
               <tr><td>Tiempo de Solucion</td><td>22 horas</td></tr>
-              <tr><td>Estado</td><td>
-                <span class="tag ok">Solucionados 93.55%</span>
-                <span class="tag err">Rechazados 6.45%</span>
-              </td></tr>
+              <tr>
+                <td>Estado</td>
+                <td class="estado-cell">
+                  <div class="estado-tags">
+                    <span class="tag ok">Solucionados 93.55%</span>
+                    <span class="tag err">Rechazados 6.45%</span>
+                  </div>
+                  <div class="progress" style="--value:93.55;"></div>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
-        <div class="card">
-          <h3>Administrativos</h3>
-          <table>
+
+        <!-- Card: Administrativos -->
+        <div class="card req-card">
+          <div class="req-card-head">
+            <h3>Administrativos</h3>
+            <span class="chip chip-admin">Atención</span>
+          </div>
+
+          <table class="table-metrics">
             <thead><tr><th>Métrica</th><th>Valor</th></tr></thead>
             <tbody>
-              <tr><td>Total Solucionados</td><td>77</td></tr>
+              <tr><td>Total Solucionados</td><td><strong>77</strong></td></tr>
               <tr><td>Total Rechazado</td><td>53</td></tr>
               <tr><td>Tiempo de Solucion</td><td>4 horas</td></tr>
-              <tr><td>Estado</td><td>
-                <span class="tag ok">Solucionados 59.23%</span>
-                <span class="tag err">Rechazados 40.77%</span>
-              </td></tr>
+              <tr>
+                <td>Estado</td>
+                <td class="estado-cell">
+                  <div class="estado-tags">
+                    <span class="tag ok">Solucionados 59.23%</span>
+                    <span class="tag err">Rechazados 40.77%</span>
+                  </div>
+                  <div class="progress" style="--value:59.23;"></div>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
+
       </div>
     </section>
 
@@ -383,7 +472,9 @@ table td:last-child {
                <tr><td>Mayo</td><td>5125</td><td>$ 1.507.006.600 M</td></tr>
               <tr><td>Junio</td><td>4764</td><td>$ 1.419.476.336 M</td></tr>
               <tr><td>Julio</td><td>6217</td><td>$ 1.871.156.550 M</td></tr>
-              <tr><td>Total</td><td>34517</td><td>$ 11.260.093.337 M</td></tr>
+             <tr><td><strong>Total</strong></td><td><strong>34517</strong></td><td>
+              <strong>$ 11.260.093.337 M</strong></td>
+</tr>
             </tbody>
           </table>
         </div>
@@ -398,46 +489,57 @@ table td:last-child {
       </div>
     </section>
 
-    <!-- RRHH -->
-    <section id="rrhh">
-      <div class="section-head">
-        <h2>5) RRHH – Ingresos y Retiros por Zona</h2>
-        <span class="pill">Neto y barras</span>
-      </div>
-      <div class="card">
-        <table>
-          <thead><tr><th>Zona</th><th>Ingresos</th><th>Retiros</th><th>Neto</th></tr></thead>
-          <tbody>
-      <tr><td>Bucaramanga</td><td>34</td><td>65</td><td>-31</td>
-      <tr><td>Villavicencio</td><td>18</td><td>11</td><td>7</td>
-      <tr><td>Vetecel</td><td>14</td><td>12</td><td>2</td>
-      <tr><td>Ibague</td><td>12</td><td>6</td><td>6</td> 
-      <tr><td>Uraba</td><td>10</td><td>6</td><td>4</td>
-      <tr><td>Medellin</td><td>6</td><td>10</td><td>-4</td>
-      <tr><td>Cucuta</td><td>6</td><td>14</td><td>-8</td>
-      <tr><td>Cedi Fla</td><td>5</td><td>4</td><td>1</td>
-      <tr><td>Tunja</td><td>5</td><td>1</td><td>4</td>
-      <tr><td>Norte de Antioquia</td><td>5</td><td>9</td><td>-4</td>
-      <tr><td>La Ceja</td><td>5</td><td>4</td><td>1</td>
-      <tr><td>Ocaña</td><td>3</td><td>0</td><td>3</td>
-      <tr><td>Chia</td><td>2</td><td>2</td><td>0</td>
-      <tr><td>Fusa</td><td>2</td><td>2</td><td>0</td>
-      <tr><td>Manizales</td><td>2</td><td>2</td><td>0</td>
-      <tr><td>Pereira</td><td>2</td><td>6</td><td>-4</td>
-      <tr><td>Huila</td><td>2</td><td>1</td><td>1</td>
-      <tr><td>Bogota Mayor</td><td>2</td><td>10</td><td>-8</td>
-      <tr><td>Milenio</td><td>1</td><td>2</td><td>-1</td>
-      <tr><td>Funza</td><td>1</td><td>0</td><td>1</td>
-      <tr><td>Ipiales</td><td>1</td><td>1</td><td>0</td>
-      <tr><td>Cali</td><td>0</td><td>8</td><td>-8</td>
-      <tr><td>Fla Amigos</td><td>0</td><td>7</td><td>-7</td>
-       <tr><td>Centro Mayor</td><td>0</td><td>4</td><td>-4</td>
-    
-    
-          </tbody>
-        </table>
-      </div>
-    </section>
+ <section id="rrhh">
+  <div class="section-head">
+    <h2>5) RRHH – Ingresos y Retiros por Zona</h2>
+    <span class="pill">Neto y barras</span>
+  </div>
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>Zona</th>
+          <th>Ingresos</th>
+          <th>Retiros</th>
+          <th>Neto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Bucaramanga</td><td>34</td><td>65</td><td>-31</td></tr>
+        <tr><td>Villavicencio</td><td>18</td><td>11</td><td>7</td></tr>
+        <tr><td>Vetecel</td><td>14</td><td>12</td><td>2</td></tr>
+        <tr><td>Ibague</td><td>12</td><td>6</td><td>6</td></tr> 
+        <tr><td>Uraba</td><td>10</td><td>6</td><td>4</td></tr>
+        <tr><td>Medellin</td><td>6</td><td>10</td><td>-4</td></tr>
+        <tr><td>Cucuta</td><td>6</td><td>14</td><td>-8</td></tr>
+        <tr><td>Cedi Fla</td><td>5</td><td>4</td><td>1</td></tr>
+        <tr><td>Tunja</td><td>5</td><td>1</td><td>4</td></tr>
+        <tr><td>Norte de Antioquia</td><td>5</td><td>9</td><td>-4</td></tr>
+        <tr><td>La Ceja</td><td>5</td><td>4</td><td>1</td></tr>
+        <tr><td>Ocaña</td><td>3</td><td>0</td><td>3</td></tr>
+        <tr><td>Chia</td><td>2</td><td>2</td><td>0</td></tr>
+        <tr><td>Fusa</td><td>2</td><td>2</td><td>0</td></tr>
+        <tr><td>Manizales</td><td>2</td><td>2</td><td>0</td></tr>
+        <tr><td>Pereira</td><td>2</td><td>6</td><td>-4</td></tr>
+        <tr><td>Huila</td><td>2</td><td>1</td><td>1</td></tr>
+        <tr><td>Bogota Mayor</td><td>2</td><td>10</td><td>-8</td></tr>
+        <tr><td>Milenio</td><td>1</td><td>2</td><td>-1</td></tr>
+        <tr><td>Funza</td><td>1</td><td>0</td><td>1</td></tr>
+        <tr><td>Ipiales</td><td>1</td><td>1</td><td>0</td></tr>
+        <tr><td>Cali</td><td>0</td><td>8</td><td>-8</td></tr>
+        <tr><td>Fla Amigos</td><td>0</td><td>7</td><td>-7</td></tr>
+        <tr><td>Centro Mayor</td><td>0</td><td>4</td><td>-4</td></tr>
+        <!-- Total -->
+        <tr style="font-weight:bold;">
+          <td>Total</td>
+          <td>138</td>
+          <td>187</td>
+          <td>-49</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
     <!-- IMPORTACIONES -->
     <section id="import">
