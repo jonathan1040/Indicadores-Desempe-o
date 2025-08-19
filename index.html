@@ -242,6 +242,21 @@ table td:first-child{
     background: linear-gradient(90deg, var(--ok), #0f8f64);
   }
 </style>
+<script>
+  // Espera a que cargue el DOM
+  document.addEventListener("DOMContentLoaded", () => {
+    const links = document.querySelectorAll(".nav a");
+
+    links.forEach(link => {
+      link.addEventListener("click", () => {
+        // Quitar clase active a todos
+        links.forEach(l => l.classList.remove("active"));
+        // Agregarla solo al clicado
+        link.classList.add("active");
+      });
+    });
+  });
+</script>
 </head>
 <body>
 <div class="app">
@@ -303,7 +318,7 @@ table td:first-child{
           </table>
         </div>
         <div class="card">
-          <h3 style="margin-bottom:8px">Distribución de causas</h3>
+          <h3 style="margin-bottom:8px">Distribución de causas total 2025</h3>
           <p class="tag warn">Fecha registrada no coincide con la del comprobante 20.43%</p>
           <div class="bar warn" style="margin:8px 0"><i style="width:20.43%"></i></div>
           <p class="tag">Valor registrado no cincide con el del comprobante 22.16%</p>
@@ -389,7 +404,7 @@ table td:first-child{
             <thead><tr><th>Métrica</th><th>Valor</th></tr></thead>
             <tbody>
               <tr><td>Total Solucionados</td><td><strong>77</strong></td></tr>
-              <tr><td>Total Rechazado</td><td>53</td></tr>
+              <tr><td>Total Rechazado</td><td>54</td></tr>
               <tr><td>Tiempo de Solucion</td><td>4 horas</td></tr>
               <tr>
                 <td>Estado</td>
