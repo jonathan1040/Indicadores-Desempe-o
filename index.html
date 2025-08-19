@@ -262,6 +262,7 @@ table td:first-child{
       <a href="#bancos">Traslados a Bancos</a>
       <a href="#reqs">Requerimientos</a>
       <a href="#rechazos">Rechazos Financieras</a>
+     <a href="#rechazosAdmin">Rechazos Administrativos</a>
       <a href="#gastos">Gastos</a>
       <a href="#rrhh">RRHH por Zona</a>
       <a href="#import">Importaciones</a>
@@ -273,36 +274,7 @@ table td:first-child{
   <main class="content">
     <header>
       <span class="badge">Contacto:  operaciones@chacam.co</span>
-    </header>
-
-    <!-- KPIs -->
-    <section id="kpi">
-      <div class="grid kpis">
-        <div class="card">
-          <h3>Traslados a Bancos de Enero 2025 a Julio 2025</h3>
-          <div class="big">51.595</div>
-          <div class="spark" style="margin-top:8px">
-            <div class="dot a"></div><div class="dot b"></div><div class="dot c"></div><div class="dot a"></div><div class="dot d"></div><div class="dot a"></div>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Tasa de Rechazo Traslados a Bancos</h3>
-          <div class="big">7.5%</div>
-          <div class="bar warn" style="margin-top:8px"><i style="width:38%"></i></div>
-        </div>
-        <div class="card">
-          <h3>Tiempo prom. Solución – Software</h3>
-          <div class="big">31 Minutos</div>          <div class="bar" style="margin-top:8px"><i style="width:56%"></i></div>
-        </div>
-        <div class="card">
-          <h3>Valor Total Importaciones (2025)</h3>
-          <div class="big">$ 38.402.670.009 M</div>
-          <div class="bar ok" style="margin-top:8px"><i style="width:72%"></i></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- BANCOS -->
+    </header>    <!-- BANCOS -->
     <section id="bancos">
       <div class="section-head">
         <h2>1) Traslados de dinero a bancos</h2>
@@ -451,10 +423,33 @@ table td:first-child{
         </table>
       </div>
     </section>
+    
+    <!-- RECHAZOS + GASTOS -->
+    <section id="rechazosAdmin">
+      <div class="section-head">
+        <h2>4) Motivo Rechazos Administrativos</h2>
+      </div>
+      <div class="card">
+        <table>
+          <thead><tr><th>Causa</th><th>Cantidad</th></tr></thead>
+          <tbody>
+            <tr><td>No se identifica saldo en la cxp de este tercero</td><td>17</td>
+            <tr><td>La información de los terceros no coincide</td><td>12</td>
+            <tr><td>El cruce se debe realizar con una cxc</td><td>6</td>
+            <tr><td>No es requerimiento tipo adm</td><td>5</td>
+            <tr><td>El pago a proveedor se hace según la nueva política de pago</td><td>4</td>
+            <tr><td>No es necesario poner requerimiento para los pagos a proveedor, desde que todos los datos estén bien los pagos se realizan</td><td>2</td>
+            <tr><td>El pago es interbancario por lo cual se demora hasta 3 días hábiles para ingresar</td><td>2</td>
+            <tr><td>Otros</td><td>6</td>
+            <tr><td><strong>Total</strong></td><td><strong>54</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
     <section id="gastos">
       <div class="section-head">
-        <h2>4) Gastos – Distribución</h2>
+        <h2>5) Gastos – Distribución</h2>
         <span class="pill">Ene–Jul</span>
       </div>
         <div class="card">
@@ -478,7 +473,7 @@ table td:first-child{
 
  <section id="rrhh">
   <div class="section-head">
-    <h2>5) RRHH – Ingresos y Retiros por Zona</h2>
+    <h2>6) RRHH – Ingresos y Retiros por Zona</h2>
     <span class="pill">Neto y barras</span>
   </div>
   <div class="card">
@@ -531,7 +526,7 @@ table td:first-child{
     <!-- IMPORTACIONES -->
     <section id="import">
       <div class="section-head">
-        <h2>6) Importaciones – Comparativo</h2>
+        <h2>7) Importaciones – Comparativo</h2>
         <span class="pill">2024 vs 2025</span>
       </div>
         <div class="card">
@@ -545,21 +540,23 @@ table td:first-child{
             </tbody>
           </table>
       </div>
-
-     <section id="InventoryEntries">
+   </section>
+    <!-- IMPORTACIONES -->
+    <section id="InventoryEntries">
       <div class="section-head">
-        <h2>7) Entradas Inventario</h2>
-        <span class="pill">Prom diario y mensual</span>
+        <h2>8) Entradas Inventario – Comparativo</h2>
+        <span class="pill">2024 vs 2025</span>
       </div>
         <div class="card">
           <table>
             <thead><tr><th>Periodo</th><th>Cantidad</th><th>Promedio Diario</th><th>Promedio Mensual</th></tr></thead>
             <tbody>
-               <tr><td>2025</td><td>10321</td><td>62</td><td>1418</td>
+               <tr><td>2024</td><td>11668</td><td>47</td><td>972</td>
+                <tr><td>2025</td><td>10321</td><td>62</td><td>1418</td>
             </tbody>
           </table>
       </div>
-    </section>
+   </section>
   </main>
 </div>
 </body>
