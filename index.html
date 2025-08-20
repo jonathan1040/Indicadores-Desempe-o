@@ -261,10 +261,11 @@ table td:first-child{
       <a href="#kpi" class="active">Resumen KPI</a>
       <a href="#bancos">Traslados a Bancos</a>
       <a href="#reqs">Requerimientos</a>
+      <a href="#movimientosFinance">Ingresos Financieras</a>
       <a href="#rechazos">Rechazos Financieras</a>
      <a href="#rechazosAdmin">Rechazos Administrativos</a>
       <a href="#gastos">Gastos</a>
-      <a href="#rrhh">RRHH por Zona</a>
+      <a href="#rrhh">RH por Zona</a>
       <a href="#import">Importaciones</a>
       <a href="#InventoryEntries">Entradas  Inventario</a>
     </nav>
@@ -292,13 +293,7 @@ table td:first-child{
               <tr><td>Mayo</td><td>7.779</td><td>640</td><td>8.2%</td><td>Falta anexo</td></tr>
               <tr><td>Junio</td><td>6.437</td><td>471</td><td>7.3%</td><td>Este tipo de pago no lleva referencia</td></tr>
               <tr><td>Julio</td><td>8.729</td><td>622</td><td>6.4%</td><td>Pasar a caja bancolombia corriente y davivienda</td></tr>
-              <tr>
-  <td><strong>Total</strong></td>
-  <td><strong>51.595</strong></td>
-  <td><strong>3900</strong></td>
-  <td><strong>7.5%</strong></td>
-  <td><strong>Fecha Registrada No coincide con la de el Comprobante</strong></td>
-</tr>
+              <tr><td><strong>Total</strong></td><td><strong>51.595</strong></td><td><strong>3900</strong></td><td><strong>7.5%</strong></td><td><strong>Fecha Registrada No coincide con la de el Comprobante</strong></td></tr>
             </tbody>
           </table>
         </div>
@@ -350,8 +345,8 @@ table td:first-child{
             </tbody>
           </table>
         </div>
-
-        <!-- Card: Diseño -->
+        <!-- Card: Dise
+         ño -->
         <div class="card req-card">
           <div class="req-card-head">
             <h3>Diseño</h3>
@@ -407,10 +402,31 @@ table td:first-child{
       </div>
     </section>
 
+ <section id="rechazosAdmin">
+      <div class="section-head">   
+        <h2>3) Motivo Rechazos Administrativos</h2>
+      </div>
+      <div class="card">
+        <table>
+          <thead><tr><th>Causa</th><th>Cantidad</th></tr></thead>
+          <tbody>
+            <tr><td>No se identifica saldo en la cxp de este tercero</td><td>17</td>
+            <tr><td>La información de los terceros no coincide</td><td>12</td>
+            <tr><td>El cruce se debe realizar con una cxc</td><td>6</td>
+            <tr><td>No es requerimiento tipo adm</td><td>5</td>
+            <tr><td>El pago a proveedor se hace según la nueva política de pago</td><td>4</td>
+            <tr><td>No es necesario poner requerimiento para los pagos a proveedor, desde que todos los datos estén bien los pagos se realizan</td><td>2</td>
+            <tr><td>El pago es interbancario por lo cual se demora hasta 3 días hábiles para ingresar</td><td>2</td>
+            <tr><td>Otros</td><td>6</td>
+            <tr><td><strong>Total</strong></td><td><strong>54</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
     <!-- RECHAZOS + GASTOS -->
-    <section id="rechazos">
+    <section id="movimientosFinance">
       <div class="section-head">
-        <h2>3) Cantidad subida en Financieras</h2>
+        <h2>4) Total de Registros Subidos en Financieras</h2>
       </div>
       <div class="card">
         <table>
@@ -433,7 +449,7 @@ table td:first-child{
     <!-- RECHAZOS + GASTOS -->
     <section id="rechazos">
       <div class="section-head">
-        <h2>3) Causas en Rechazos en Financieras</h2>
+        <h2>5) Análisis de Causas de Rechazo en Financieras</h2>
       </div>
       <div class="card">
         <table>
@@ -446,35 +462,10 @@ table td:first-child{
         </table>
       </div>
     </section>
-    
-    <!-- RECHAZOS + GASTOS -->
-    <section id="rechazosAdmin">
-      <div class="section-head">
-
-        
-        <h2>4) Motivo Rechazos Administrativos</h2>
-      </div>
-      <div class="card">
-        <table>
-          <thead><tr><th>Causa</th><th>Cantidad</th></tr></thead>
-          <tbody>
-            <tr><td>No se identifica saldo en la cxp de este tercero</td><td>17</td>
-            <tr><td>La información de los terceros no coincide</td><td>12</td>
-            <tr><td>El cruce se debe realizar con una cxc</td><td>6</td>
-            <tr><td>No es requerimiento tipo adm</td><td>5</td>
-            <tr><td>El pago a proveedor se hace según la nueva política de pago</td><td>4</td>
-            <tr><td>No es necesario poner requerimiento para los pagos a proveedor, desde que todos los datos estén bien los pagos se realizan</td><td>2</td>
-            <tr><td>El pago es interbancario por lo cual se demora hasta 3 días hábiles para ingresar</td><td>2</td>
-            <tr><td>Otros</td><td>6</td>
-            <tr><td><strong>Total</strong></td><td><strong>54</strong></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
+  
     <section id="gastos">
       <div class="section-head">
-        <h2>5) Gastos – Distribución</h2>
+        <h2>6) Gastos – Distribución</h2>
         <span class="pill">Ene–Jul</span>
       </div>
         <div class="card">
@@ -497,7 +488,7 @@ table td:first-child{
 
  <section id="rrhh">
   <div class="section-head">
-    <h2>6) RRHH – Ingresos y Retiros por Zona</h2>
+    <h2>7) RRHH – Ingresos y Retiros por Zona</h2>
     <span class="pill">Neto y barras</span>
   </div>
   <div class="card">
@@ -550,7 +541,7 @@ table td:first-child{
     <!-- IMPORTACIONES -->
     <section id="import">
       <div class="section-head">
-        <h2>7) Importaciones – Comparativo</h2>
+        <h2>8) Importaciones – Comparativo</h2>
         <span class="pill">2024 vs 2025</span>
       </div>
         <div class="card">
@@ -568,7 +559,7 @@ table td:first-child{
     <!-- IMPORTACIONES -->
     <section id="InventoryEntries">
       <div class="section-head">
-        <h2>8) Entradas Inventario – Comparativo</h2>
+        <h2>9) Entradas Inventario – Comparativo</h2>
         <span class="pill">2024 vs 2025</span>
       </div>
         <div class="card">
